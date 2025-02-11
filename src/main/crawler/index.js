@@ -23,12 +23,18 @@ import { get17LiveUrlsPlugin, get17LiveRoomInfoPlugin } from './plugins/17live'
 import { getXhsUrlsPlugin, getXhsRoomInfoPlugin } from './plugins/xhs'
 import { getKilakilaLiveUrlsPlugin, getKilakilaRoomInfoPlugin } from './plugins/kilakila'
 import { getAcFunLiveUrlsPlugin, getAcFunRoomInfoPlugin } from './plugins/acfun'
+import { getLailerLiveUrlsPlugin, getLailerRoomInfoPlugin } from './plugins/lailer'
 
 import { CRAWLER_ERROR_CODE } from '../../code'
 
 const log = debug('fideo-crawler')
 
 const hostnameToPlatformCrawlerFnMap = {
+  'm.lailer.net': {
+    getLiveUrlsFn: getLailerLiveUrlsPlugin,
+    getRoomInfoFn: getLailerRoomInfoPlugin
+  },
+
   'www.youtube.com': {
     getLiveUrlsFn: getYoutubeLiveUrlsPlugin,
     getRoomInfoFn: getYoutubeRoomInfoPlugin
